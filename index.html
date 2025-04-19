@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NSA Event Check-in</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/html5-qrcode.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NSA Event Check-in</h1>
+        </header>
+        
+        <div id="reader-container" class="hidden">
+            <div id="reader"></div>
+            <button id="startButton" class="action-button">Start Scanning</button>
+        </div>
+        
+        <div id="result-container" class="hidden">
+            <div id="result-status"></div>
+            <div id="attendee-info">
+                <p><strong>Name:</strong> <span id="name"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+            </div>
+            <button id="scanAgain" class="action-button">Scan Another</button>
+        </div>
+
+        <div id="auth-container">
+            <p>Please authorize access to Google Sheets to verify registrations:</p>
+            <button id="authorize" class="action-button">Authorize Google Sheets</button>
+            <p id="auth-status" style="margin-top: 10px; font-style: italic;"></p>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+        
+        <div id="debug-controls" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+            <button id="forceHideLoading" class="debug-button">Force Hide Loading</button>
+            <button id="toggleDebug" class="debug-button">Show Debug Info</button>
+            <div id="debug-info" style="display: none; margin-top: 10px; padding: 10px; background: #f5f5f5; font-family: monospace; max-height: 200px; overflow: auto;"></div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
